@@ -11,17 +11,8 @@ const CountryItem = ({ country }) => (
       </View>
     </View>
     <View>
-      <Text style={styles.textPrice}>${country.capital}</Text>
-      {/* <Text
-        style={[
-          styles.pricePercentage,
-          coin.price_change_percentage_24h > 0
-            ? styles.priceUp
-            : styles.priceDown,
-        ]}
-      >
-        {coin.price_change_percentage_24h.toFixed(2)}%
-      </Text> */}
+      <Text style={styles.textRight}>{country.subregion},</Text>
+      <Text style={styles.textRight}>{country.region},</Text>
     </View>
   </View>
 );
@@ -42,22 +33,14 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
   },
-  textPrice: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  pricePercentage: {
-    textAlign: "right",
-  },
-  priceUp: {
-    color: "#00B589",
-  },
-  priceDown: {
-    color: "#fc4422",
+  textRight: {
+    color: "#c8cbfa",
+    textAlign: "right"
   },
   image: {
     width: 30,
     height: 30,
+    paddingTop: 4
   },
   textSymbol: {
     color: "#c8cbfa",
