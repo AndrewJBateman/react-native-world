@@ -7,12 +7,12 @@ const CountryItem = ({ country }) => (
       <Image source={{ uri: country.flags.svg }} style={styles.image} />
       <View style={styles.containerNames}>
         <Text style={styles.text}>{country.name.common}</Text>
-        <Text style={styles.textSymbol}>{country.cca2}</Text>
+        <Text style={styles.textCaps}>{country.cca2}</Text>
       </View>
     </View>
     <View>
       <Text style={styles.textRight}>{country.subregion},</Text>
-      <Text style={styles.textRight}>{country.region},</Text>
+      <Text style={styles.textRight}>{country.region}</Text>
     </View>
   </View>
 );
@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
   },
   textRight: {
     color: "#c8cbfa",
-    textAlign: "right"
+    textAlign: "right",
   },
   image: {
-    width: 30,
-    height: 30,
-    paddingTop: 4
+    width: 60,
+    height: 40,
+    paddingTop: 4,
   },
-  textSymbol: {
+  textCaps: {
     color: "#c8cbfa",
     textTransform: "uppercase",
   },

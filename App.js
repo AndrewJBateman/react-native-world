@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   list: {
-    width: "90%",
+    width: "95%",
+    marginLeft: 4,
   },
   searchInput: {
     color: "#fff",
