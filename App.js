@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Appearance,
   View,
   Text,
   StyleSheet,
@@ -7,10 +8,15 @@ import {
   FlatList,
   TextInput,
 } from "react-native";
+import lightMode from "./styles/lightMode"
 
 import CountryItem from "./components/CountryItem";
 
 const App = () => {
+  const [theme, setTheme] = useState(Appearance.getColorScheme());
+  Appearance.addChangeListener((scheme) => {
+    setTheme(scheme.colorScheme);
+  })
   const [countries, setCountries] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [search, setSearch] = useState("");
@@ -27,13 +33,13 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={theme== 'dark'? styles.container : lightMode.container}>
       <StatusBar backgroundColor="#0e0275" />
 
       <View style={styles.header}>
-        <Text style={styles.title}>World Countries</Text>
+        <Text style={theme== 'dark'? styles.title : lightMode.title}>World Countries</Text>
         <TextInput
-          style={styles.searchInput}
+          style={theme== 'dark'? styles.searchInput : lightMode.searchInput}
           placeholder="Search country name"
           placeholderTextColor="#858585"
           onChangeText={(text) => text && setSearch(text)}

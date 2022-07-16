@@ -1,18 +1,29 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import lightMode from "./../styles/lightMode";
 
 const CountryItem = ({ country }) => (
-  <View style={styles.containerItem}>
-    <View style={styles.countryName}>
+  <View
+    style={theme == "dark" ? styles.containerItem : lightMode.ContainerItem}
+  >
+    <View style={theme == "dark" ? styles.countryName : lightMode.countryName}>
       <Image source={{ uri: country.flags.svg }} style={styles.image} />
       <View style={styles.containerNames}>
-        <Text style={styles.text}>{country.name.common}</Text>
-        <Text style={styles.textCaps}>{country.cca2}</Text>
+        <Text style={theme == "dark" ? styles.text : lightMode.text}>
+          {country.name.common}
+        </Text>
+        <Text style={theme == "dark" ? styles.textCaps : lightMode.textCaps}>
+          {country.cca2}
+        </Text>
       </View>
     </View>
     <View>
-      <Text style={styles.textRight}>{country.subregion},</Text>
-      <Text style={styles.textRight}>{country.region}</Text>
+      <Text style={theme == "dark" ? styles.textRight : lightMode.textRight}>
+        {country.subregion},
+      </Text>
+      <Text style={theme == "dark" ? styles.textRight : lightMode.textRight}>
+        {country.region}
+      </Text>
     </View>
   </View>
 );
